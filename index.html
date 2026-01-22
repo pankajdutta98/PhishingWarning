@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Alert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .phone {
+      max-width: 420px;
+      margin: auto;
+      height: 100vh;
+      background: #0f0f0f;
+      display: flex;
+      flex-direction: column;
+      border: 4px solid #ff1a1a;
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0% { border-color: #ff1a1a; }
+      50% { border-color: #400000; }
+      100% { border-color: #ff1a1a; }
+    }
+
+    .header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 1px solid #333;
+    }
+
+    .chat {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .bubble {
+      background: #1e1e1e;
+      color: #ff4d4d;
+      padding: 14px;
+      border-radius: 14px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+      font-size: 15px;
+    }
+
+    .scan-box {
+      margin-top: 20px;
+    }
+
+    .scan-text {
+      color: #ff8080;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 10px;
+      background: #333;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff0000, #ff6666);
+      animation: scan 11s forwards;
+    }
+
+    @keyframes scan {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+
+    .safe {
+      display: none;
+      margin-top: 25px;
+      background: #0d3322;
+      color: #00ff99;
+      padding: 14px;
+      border-radius: 14px;
+      box-shadow: 0 0 12px rgba(0, 255, 153, 0.3);
+      font-size: 15px;
+    }
+
+    .footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      font-size: 12px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone">
+    <div class="header">System Security</div>
+
+    <div class="chat">
+      <div class="bubble">
+        ⚠️ Suspicious activity detected<br><br>
+        This website is scanning your device.<br><br>       
+      </div>
+
+      <div class="scan-box">
+        <div class="scan-text">Scanning your device...</div>
+        <div class="progress">
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <div class="safe" id="safeBox">
+        ✅ Demo complete — you are safe.<br><br>
+        Real malicious links do not warn you.<br>
+        They steal silently.
+      </div>
+    </div>    
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("safeBox").style.display = "block";
+    }, 11200);
+  </script>
+
+</body>
+</html>
